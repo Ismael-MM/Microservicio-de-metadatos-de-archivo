@@ -15,12 +15,12 @@ app.get('/', function (req, res) {
   res.sendFile(process.cwd() + '/views/index.html');
 });
 
-app.post('/upload', upload.single('upfile'), (req, res) => {
+app.post('/api/fileanalyse', upload.single('upfile'), (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: 'No file uploaded' });
   }
 
-  const { originalname, mimetype, size, buffer } = req.file;
+  const { originalname, mimetype, size } = req.file;
 
   res.json({
     name: originalname,
