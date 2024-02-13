@@ -17,15 +17,16 @@ app.get('/', function (req, res) {
 
 app.post('/upload', upload.single('upfile'), (req, res) => {
   if (!req.file) {
-      return res.status(400).json({ error: 'No file uploaded' });
+    return res.status(400).json({ error: 'No file uploaded' });
   }
-  
+
   const { originalname, mimetype, size, buffer } = req.file;
-  
+
   res.json({
-      name: originalname,
-      type: mimetype,
-      size: size,
+    name: originalname,
+    type: mimetype,
+    size: size,
+  });
 });
 
 
