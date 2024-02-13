@@ -25,7 +25,7 @@ app.post('/upload', upload.single('upfile'), (req, res) => {
   res.json({
     name: originalname,
     type: mimetype,
-    size: size,
+    size: size
   });
 });
 
